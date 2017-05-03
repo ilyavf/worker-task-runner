@@ -36,7 +36,7 @@
  *  const { create, runTask, execTask } = require('../src/helpers')
  *
  *  // Define your task URL and data:
- *  cosnt workerUrl = "worker-task-runner/src/worker.js"
+ *  const workerUrl = "worker-task-runner/src/worker.js"
  *  const taskUrl = "demo/task.js"
  *  const data = [1, 2, 3, 4]
  *
