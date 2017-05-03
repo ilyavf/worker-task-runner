@@ -88,3 +88,10 @@ Or if you prefer a Promise:
 ```
 // TODO :)
 ```
+
+## Release Notes
+
+- `0.0.1` Initial version:
+  - Send data via `postMessage`.
+  - Worker loads the given task script using StealJS module loader.
+  - Helpers for using `data.task` Task.
