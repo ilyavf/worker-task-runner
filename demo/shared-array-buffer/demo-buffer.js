@@ -1,10 +1,6 @@
 const Task = require('data.task')
-const { create, execTask } = require('worker-task-runner/src/helpers')
+const { create, execTask, createBuffer, bufferToArray } = require('worker-task-runner/src/helpers')
 const { TASK_RESULT } = require('worker-task-runner/src/constants')
-
-// createBuffer :: Number -> SharedArrayBuffer
-const createBuffer = size =>
-  new window.SharedArrayBuffer( size * Int32Array.BYTES_PER_ELEMENT )
 
 // sendMessage :: Object -> Worker -> Worker
 const sendMessage = (message, worker) => {
@@ -27,16 +23,12 @@ const getResult = worker =>
     }
   })
 
-// toArray :: Result -> Array
-const toArray = ({ buffer, type }) =>
-  new window[type]( buffer )
-
 // Main app:
 const app =
   create('demo/shared-array-buffer/worker')
   .map(shareData(createBuffer(100)))
   .chain(getResult)
-  .map(toArray)
+  .map(bufferToArray)
 
 console.log('Starting app...');
 execTask(app)
