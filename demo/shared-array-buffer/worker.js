@@ -4,15 +4,17 @@ console.log('worker buffer')
 
 self.onmessage =  ev => {
   console.log('event', ev)
-  if (ev.data.buffer){
-    const sharedArray = new self[ev.data.type]( ev.data.buffer );
+  if (ev.data.taskData){
+    let buffer = ev.data.taskData.buffer
+    let type = ev.data.taskData.type
+    const sharedArray = new self[type]( buffer );
     sharedArray.forEach((a, i) => sharedArray[i] = i * 2)
     console.log('Worker: postMessage result...')
     self.postMessage({
       type: TASK_RESULT,
       result: {
-        buffer: ev.data.buffer,
-        type: ev.data.type
+        buffer,
+        type
       }
     })
   }

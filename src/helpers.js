@@ -7,7 +7,7 @@
 const Task = require('data.task')
 const execTask = require('./utils/exec')
 const { READY, RUN_TASK, TASK_RESULT } = require('./constants')
-const sharedHelpers = require('./helpers/shared')
+const sharedBufferHelpers = require('./helpers/shared-buffer')
 
 /**
  * @function create Creates a Web Worker
@@ -59,4 +59,4 @@ module.exports = Object.assign({
   create,
   runTask,
   execTask
-}, sharedHelpers)
+}, sharedBufferHelpers)
