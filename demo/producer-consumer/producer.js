@@ -4,7 +4,7 @@ const produceNonZero = () => Math.floor(Math.random() * 1000)
 self.onmessage = ev => {
   let i32 = ev.data;
   let i = 0;
-  while (i < 5000) {
+  while (i < 900) {
     let curr = Atomics.load(i32, i);             // load i32[i]
     if (curr != 0) Atomics.wait(i32, i, curr);   // wait till i32[i] != curr
     Atomics.store(i32, i, produceNonZero());     // store in i32[i]
