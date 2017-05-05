@@ -12,6 +12,8 @@
   "author": "Ilya Fadeev <fadeev.ilya@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "immutable": "^3.8.1",
+    "immutable-ext": "^1.0.8",
     "standard": "^10.0.2",
     "steal": "^1.5.2"
   },

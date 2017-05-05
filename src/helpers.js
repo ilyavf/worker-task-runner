@@ -34,6 +34,7 @@ const create =  url =>
  * @function runTask Runs a task in a worker
  * @param {Worker} worker
  * @param {String} taskUrl A URL of a script that exports a task to be run
+ * @param {*} taskData Data to be passed to the task
  */
 // runTask :: Worker -> String -> a -> Task b
 const runTask = (worker, taskUrl) => taskData => {

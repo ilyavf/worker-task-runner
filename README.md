@@ -56,7 +56,7 @@ worker.onmessage = ev => {
 You can use `Worker` directly and just use the message API
 ```js
 const worker = new Worker("worker-task-runner/src/worker.js")
-const taskUrl = "demo/task.js"
+const taskUrl = "demo/task"   // <<< your task module name without `.js` extension
 const data = [1, 2, 3, 4]
 
 const myCallback = result => console.log("Web worker finished: ", result)
@@ -81,10 +81,10 @@ You can use the following helpers to work in a functiona style using `data.task`
 ```js
 // Import helpers:
 const { create, runTask, execTask } = require('worker-task-runner')
+const workerUrl = "worker-task-runner/src/worker.js"
 
 // Define your task URL and data:
-const workerUrl = "worker-task-runner/src/worker.js"
-const taskUrl = "demo/task.js"
+const taskUrl = "demo/task"    // <<< your task module name without `.js` extension
 const data = [1, 2, 3, 4]
 
 // Define your main app that creates a worker and runs a task:
